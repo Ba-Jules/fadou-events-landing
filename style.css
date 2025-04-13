@@ -1,0 +1,998 @@
+/* Global Styles & Variables */
+:root {
+    --cream: #F8F5F0;
+    --sage-green: #A0AF8F;
+    --soft-taupe: #A89C90;
+    /* Warm Taupe */
+    --matte-gold: #C8B074;
+    /* Original Gold */
+    --powder-pink: #E8C3B9;
+    /* Soft Peach */
+    --accent-gold: #D4AF37;
+    /* New Gold Accent */
+    --secondary-text: #4A4A4A;
+    /* Defined secondary text color */
+    --white-text: #FFFFFF;
+    --header-height: 80px;
+    /* Define header height */
+
+    --font-title: 'Cormorant Garamond', serif;
+    --font-text: 'Montserrat', sans-serif;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Basic Reset & Body */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-text);
+    color: var(--secondary-text);
+    background-color: var(--cream);
+    margin: 0;
+    padding-top: var(--header-height);
+    /* Add padding to body to offset fixed header height */
+    scroll-behavior: smooth;
+    line-height: 1.6;
+    font-size: 16px;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+}
+
+/* Headings & Text */
+h1,
+h2,
+h3 {
+    font-family: var(--font-title);
+    font-weight: 700;
+    color: var(--sage-green); /* Default color, can be overridden */
+}
+
+h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--soft-taupe); /* Specific color for section titles */
+}
+
+h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.8rem;
+    color: var(--sage-green);
+}
+
+p {
+    margin-bottom: 1rem;
+    font-weight: 400;
+    color: var(--secondary-text);
+}
+
+a {
+    color: var(--matte-gold);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--sage-green);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Buttons */
+.main-button {
+    display: inline-block; /* Important for padding/margins */
+    background-color: var(--powder-pink);
+    color: var(--secondary-text);
+    padding: 15px 30px;
+    border: 2px solid var(--powder-pink);
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    text-align: center;
+    cursor: pointer;
+}
+
+.main-button:hover {
+    background-color: transparent;
+    color: var(--powder-pink);
+    border-color: var(--powder-pink);
+}
+
+/* Smaller button variant */
+.main-button.small-button {
+    padding: 10px 20px;
+    font-size: 0.95rem;
+    margin-top: 1rem;
+}
+
+
+/* ======================= Header ======================= */
+#main-header {
+    background-color: var(--cream);
+    padding: 0;
+    /* Padding handled by container */
+    border-bottom: 1px solid rgba(168, 156, 144, 0.2);
+    /* Subtle taupe border */
+    position: fixed;
+    /* Sticky header */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    /* Subtle shadow */
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    /* Ensure container takes full width */
+    height: 100%;
+}
+
+.logo-link {
+    display: inline-block;
+    /* Allows height setting */
+    height: 60%;
+    /* Adjust logo size relative to header height */
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+.logo-image {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    /* Prevent distortion */
+}
+
+/* Desktop Navigation */
+.main-nav {
+    /* Styles for desktop navigation */
+}
+
+.nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    animation: fadeIn 0.8s ease-out 0.2s forwards;
+    /* Staggered animation */
+    opacity: 0;
+    /* Start hidden for animation */
+}
+
+.nav-links li {
+    margin-left: 30px;
+    /* Spacing between links */
+}
+
+.nav-link {
+    font-family: var(--font-text);
+    font-size: 16px;
+    font-weight: 400;
+    /* Regular weight */
+    color: var(--soft-taupe);
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    /* Medium spacing */
+    transition: color 0.3s ease;
+    position: relative;
+    padding-bottom: 5px;
+    /* Space for underline effect */
+}
+
+.nav-link::after {
+    /* Underline effect on hover/active */
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--sage-green);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active { /* Define active state if needed via JS */
+    color: var(--sage-green);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+/* Hamburger Menu Button */
+.hamburger-menu {
+    display: none;
+    /* Hidden on desktop */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1010;
+    /* Above nav */
+}
+
+.hamburger-line {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background-color: var(--soft-taupe);
+    margin: 5px 0;
+    transition: transform 0.3s ease, background-color 0.3s ease, opacity 0.3s ease;
+}
+
+
+/* ======================= Hero Section (#accueil) ======================= */
+.hero {
+    position: relative;
+    min-height: calc(100vh - var(--header-height)); /* Ensure it takes viewport height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white-text);
+    overflow: hidden;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.hero-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.6); /* Darken image */
+}
+
+.hero-content {
+    max-width: 800px;
+    z-index: 1;
+    padding: 40px 20px; /* Add padding for content spacing */
+}
+
+.hero h1 {
+    color: var(--white-text);
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    font-weight: 400;
+    color: var(--cream);
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* ======================= Services Section (#prestations) ======================= */
+.services {
+    padding: 80px 0 40px; /* Reduced bottom padding */
+    background-color: white;
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    text-align: center;
+}
+
+.service-item {
+    padding: 30px;
+    border: 1px solid var(--powder-pink);
+    border-radius: 8px;
+    background-color: var(--cream);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.service-image {
+    width: 100%;
+    max-width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin: 0 auto 1.5rem;
+    display: block;
+}
+
+
+/* ======================= Event Composer Section (#composer-evenement) ======================= */
+.event-composer {
+    padding: 60px 0 80px;
+    background-color: #fff; /* White background for contrast */
+}
+
+.event-composer h2 {
+    color: var(--sage-green); /* Title color */
+    margin-bottom: 1.5rem;
+}
+
+.composer-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 3rem auto;
+    color: var(--secondary-text);
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+/* Inputs for Guests and Event Type */
+.pre-selection-inputs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+    margin-bottom: 40px;
+    padding: 25px;
+    background-color: var(--cream);
+    border-radius: 8px;
+    border: 1px solid var(--powder-pink);
+}
+
+.pre-selection-inputs .form-group {
+    flex: 1 1 280px; /* Adjust basis for better spacing */
+    min-width: 250px;
+}
+
+.pre-selection-inputs label {
+    display: block;
+    margin-bottom: 0.6rem;
+    font-weight: 500;
+    color: var(--soft-taupe);
+    font-size: 0.9rem;
+}
+
+.pre-selection-inputs input[type="number"],
+.pre-selection-inputs select {
+    width: 100%;
+    padding: 12px; /* Match modal inputs */
+    border: 1px solid var(--powder-pink);
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-family: var(--font-text);
+    font-size: 1rem;
+    background-color: #fff;
+    color: var(--secondary-text);
+}
+
+/* Estimated Total Display */
+#estimated-total-display {
+    text-align: center;
+    margin: -10px 0 40px 0; /* Adjust margin */
+    padding: 15px;
+    background-color: rgba(160, 175, 143, 0.1); /* Light sage background */
+    border-radius: 5px;
+    border: 1px dashed var(--sage-green);
+    display: none; /* Shown by JS */
+}
+#estimated-total-display .total-label { /* Optional class for "Estimation..." */
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--sage-green);
+    display: block; /* Put price on new line if needed */
+    margin-bottom: 5px;
+}
+#estimated-total-display #estimated-price {
+    font-size: 1.3em; /* Make price stand out */
+    font-weight: 700;
+    color: var(--sage-green);
+}
+#estimated-total-display .disclaimer { /* Optional class for disclaimer */
+    font-size: 0.85em;
+    font-weight: normal;
+    color: var(--secondary-text);
+    margin-top: 8px;
+    display: block;
+}
+
+/* Layout for Sérénité vs À la Carte */
+.composer-options {
+    display: grid;
+    grid-template-columns: 1fr; /* Mobile first */
+    gap: 40px;
+}
+
+.composer-package,
+.composer-alacarte {
+    border: 1px solid var(--powder-pink);
+    border-radius: 8px;
+    padding: 30px;
+    background-color: var(--cream);
+}
+
+.composer-package h3,
+.composer-alacarte h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: var(--sage-green);
+    font-size: 1.6rem;
+    border-bottom: 1px solid var(--powder-pink);
+    padding-bottom: 0.75rem;
+}
+
+/* Sérénité Package specific styles */
+.composer-package ul {
+    list-style: disc;
+    margin-left: 20px;
+    margin-bottom: 1.5rem;
+    color: var(--secondary-text);
+}
+.composer-package ul li { margin-bottom: 0.5rem; }
+
+.pricing-info {
+    font-style: italic;
+    color: var(--soft-taupe);
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* À la Carte Specific styles */
+.composer-alacarte p { /* Intro text for À la Carte */
+    margin-bottom: 1.5rem;
+}
+
+.composer-alacarte .alacarte-grid {
+    display: block; /* Default for mobile */
+    margin-bottom: 1.5rem; /* Space before button */
+}
+
+.composer-alacarte .service-category {
+    margin-bottom: 1.8rem; /* Space between categories on mobile */
+}
+
+.composer-alacarte .service-category h4 {
+    font-size: 1.2rem;
+    color: var(--soft-taupe);
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer; /* Make whole heading clickable */
+}
+
+.composer-alacarte .service-category h4 input[type="checkbox"] {
+    margin-right: 12px;
+    width: 18px;
+    height: 18px;
+    accent-color: var(--sage-green);
+    cursor: pointer;
+    flex-shrink: 0;
+}
+.composer-alacarte .service-category h4 label {
+    cursor: pointer;
+    font-weight: 700; /* Bold category title */
+}
+
+.composer-alacarte .service-items {
+    padding-left: 35px; /* Indentation */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.composer-alacarte .service-item-select {
+    display: flex;
+    align-items: center;
+}
+
+.composer-alacarte .service-item-select input[type="checkbox"] {
+    margin-right: 10px;
+    width: 16px;
+    height: 16px;
+    accent-color: var(--sage-green);
+    cursor: pointer;
+    flex-shrink: 0;
+}
+.composer-alacarte .service-item-select label {
+    color: var(--secondary-text);
+    cursor: pointer;
+    font-weight: 400;
+    flex-grow: 1;
+}
+
+.price-hint {
+    font-style: italic;
+    color: var(--sage-green); /* More visible hint */
+    font-size: 0.9rem;
+    margin-left: 8px;
+    white-space: nowrap; /* Prevent hint from wrapping */
+}
+
+
+/* ======================= Promise Section (#a-propos) ======================= */
+.promise {
+    padding: 60px 0 80px;
+    background-color: var(--cream); /* Back to cream */
+    text-align: center;
+}
+
+.promise h2 {
+    color: var(--sage-green);
+    margin-bottom: 4rem;
+}
+
+/* Apply narrowed container */
+.promise-container-narrow {
+    max-width: 960px; /* Reduced max-width */
+    /* Inherits .container styles for padding and centering */
+}
+
+.promise-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px; /* Reduced gap slightly */
+    text-align: center;
+}
+
+.promise-item {
+    padding: 20px;
+}
+
+.promise-item .icon {
+    font-size: 2.5rem; /* Use font size for emojis */
+    height: 50px; /* Keep height for alignment */
+    margin: 0 auto 1rem;
+    color: var(--soft-taupe);
+    line-height: 50px; /* Center emoji vertically */
+}
+
+.promise-item h3 {
+    font-size: 1.5rem;
+    color: var(--soft-taupe);
+    margin-bottom: 0.5rem;
+}
+
+.promise-item p {
+    font-size: 1rem;
+    color: var(--secondary-text);
+}
+
+
+/* ======================= Gallery Section (#galerie) ======================= */
+.gallery {
+    padding: 80px 0;
+    background-color: white;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 15px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 5px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.03);
+    opacity: 0.9;
+}
+
+
+/* ======================= Final CTA Section (#contact-section) ======================= */
+.cta-final {
+    padding: 80px 0;
+    background-color: var(--sage-green);
+    text-align: center;
+}
+
+.cta-final h2 {
+    color: var(--white-text);
+    margin-bottom: 2rem;
+}
+
+.cta-final .main-button {
+    background-color: var(--cream);
+    color: var(--sage-green);
+    border-color: var(--cream);
+}
+
+.cta-final .main-button:hover {
+    background-color: transparent;
+    color: var(--cream);
+    border-color: var(--cream); /* Keep border visible on hover */
+}
+
+
+/* ======================= Footer ======================= */
+footer {
+    background-color: var(--soft-taupe);
+    color: var(--cream);
+    padding: 50px 0 30px;
+    font-size: 0.9rem;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.contact-info p { margin-bottom: 0.7rem; } /* Slightly more space */
+.contact-info p strong { font-weight: 500; }
+.contact-info p a { color: var(--cream); text-decoration: none; }
+.contact-info p a:hover { color: var(--powder-pink); text-decoration: underline; }
+
+.footer-socials { margin-top: 15px; }
+.footer-socials a { margin: 0 8px; display: inline-block; }
+.footer-socials img { width: 24px; height: 24px; opacity: 0.8; transition: opacity 0.3s ease; }
+.footer-socials a:hover img { opacity: 1; }
+
+.qr-code { text-align: center; }
+.qr-code img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+    background-color: white; /* Ensure visibility */
+    padding: 5px;
+    border-radius: 3px;
+}
+.qr-code p { font-size: 0.85rem; margin-top: 5px; color: rgba(255, 255, 255, 0.8); }
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 30px;
+    text-align: center;
+    font-size: 0.85rem;
+}
+.footer-bottom p { margin-bottom: 0.5rem; }
+.footer-bottom a {
+    margin: 0 10px;
+    color: var(--powder-pink);
+    text-decoration: underline;
+    text-decoration-color: rgba(232, 195, 185, 0.5);
+    transition: color 0.3s ease, text-decoration-color 0.3s ease;
+}
+.footer-bottom a:hover { color: var(--cream); text-decoration-color: var(--cream); }
+
+
+/* ======================= Modal Styles ======================= */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1050;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto; /* Allow scroll within modal if content overflows */
+    background-color: rgba(0, 0, 0, 0.6); /* Dark overlay */
+}
+
+.modal-content {
+    background-color: var(--cream);
+    margin: 8% auto; /* Adjust top margin for centering */
+    padding: 35px 45px;
+    border: 1px solid var(--powder-pink);
+    border-radius: 8px;
+    width: 90%; /* Responsive width */
+    max-width: 650px; /* Max width */
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.modal-close {
+    color: var(--soft-taupe);
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 32px; /* Larger close button */
+    font-weight: bold;
+    line-height: 1;
+    transition: color 0.3s ease;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+    color: var(--secondary-text);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal h2 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    color: var(--sage-green);
+    text-align: left; /* Align title left */
+    font-size: 2rem;
+}
+
+.modal p {
+    margin-bottom: 1.5rem;
+    color: var(--secondary-text);
+}
+
+/* Modal Form Styles */
+.modal form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--soft-taupe);
+    font-size: 0.9rem; /* Slightly smaller label */
+}
+
+.modal form input[type="text"],
+.modal form input[type="email"],
+.modal form input[type="tel"],
+.modal form input[type="date"],
+.modal form input[type="number"],
+.modal form select,
+.modal form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 1rem;
+    border: 1px solid var(--powder-pink);
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-family: var(--font-text);
+    font-size: 1rem;
+    background-color: #fff;
+    color: var(--secondary-text);
+    transition: border-color 0.3s ease;
+}
+.modal form input:focus,
+.modal form select:focus,
+.modal form textarea:focus {
+     border-color: var(--sage-green); /* Highlight on focus */
+     outline: none; /* Remove default outline */
+}
+
+
+.modal form input::placeholder,
+.modal form textarea::placeholder { color: #aaa; }
+
+.modal form textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* Radio button styling for RDV preference */
+.modal form .preference-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 1rem;
+}
+
+.modal form .preference-options label { /* Style the label acting as button */
+    display: inline-flex;
+    align-items: center;
+    background-color: white; /* Default background */
+    border: 1px solid var(--soft-taupe);
+    color: var(--soft-taupe);
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    margin-bottom: 0; /* Override default label margin */
+    font-weight: 400;
+    font-size: 0.95rem;
+}
+
+.modal form .preference-options input[type="radio"] {
+    opacity: 0; /* Hide the actual radio button */
+    position: fixed;
+    width: 0;
+}
+
+.modal form .preference-options input[type="radio"]:checked + label {
+    background-color: var(--soft-taupe);
+    color: var(--cream);
+    border-color: var(--soft-taupe);
+}
+
+.modal form .preference-options input[type="radio"]:focus + label {
+    outline: 2px solid var(--accent-gold); /* Focus style for accessibility */
+    outline-offset: 2px;
+}
+
+.modal form .preference-options label:hover {
+    background-color: var(--powder-pink);
+    border-color: var(--powder-pink);
+    color: var(--secondary-text);
+}
+
+/* Modal Submit Button */
+.modal form button[type="submit"] {
+    background-color: var(--sage-green);
+    color: white;
+    padding: 14px 30px; /* Slightly larger padding */
+    border: none;
+    border-radius: 5px;
+    font-size: 1.05rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block; /* Center button */
+    margin: 2rem auto 0; /* More space above */
+    min-width: 200px; /* Minimum width */
+}
+
+.modal form button[type="submit"]:hover {
+    background-color: var(--accent-gold); /* Hover color */
+}
+
+
+/* ======================= Responsive Design ======================= */
+
+/* Large Tablets / Small Laptops */
+@media (max-width: 992px) {
+    h1 { font-size: 3rem; }
+    h2 { font-size: 2.2rem; }
+
+    /* Composer adjustments for tablet */
+    .composer-options {
+        grid-template-columns: 1fr; /* Stack columns */
+    }
+     .composer-alacarte .alacarte-grid {
+        display: block; /* Ensure categories stack */
+     }
+      .composer-alacarte .service-category {
+        margin-bottom: 1.8rem; /* Restore vertical spacing */
+     }
+     .composer-alacarte .service-items {
+        padding-left: 35px; /* Keep indentation */
+    }
+}
+
+/* Tablets & Mobile */
+@media (max-width: 768px) {
+    body { padding-top: 70px; /* Adjust if header height changes */}
+    :root { --header-height: 70px; } /* Reduce header height slightly */
+
+    .header-container { position: relative; }
+
+    /* Mobile Navigation */
+    .main-nav {
+        position: absolute;
+        top: var(--header-height);
+        left: 0;
+        width: 100%;
+        background-color: var(--cream);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease-out;
+    }
+    .main-nav.open { max-height: 500px; } /* Adjust height as needed */
+
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        animation: none;
+        opacity: 1;
+    }
+    .nav-links li { margin: 10px 0; width: 100%; text-align: center; }
+    .nav-link { display: block; padding: 10px 0; }
+    .nav-link::after { display: none; } /* Hide underline on mobile */
+
+    .hamburger-menu { display: block; } /* Show hamburger */
+
+    /* Hamburger animation */
+    .hamburger-menu.open .hamburger-line:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger-menu.open .hamburger-line:nth-child(2) { opacity: 0; }
+    .hamburger-menu.open .hamburger-line:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2rem; }
+    .hero p { font-size: 1rem; padding: 0 10px; }
+
+    .service-grid { grid-template-columns: 1fr; }
+    .service-image { max-width: 180px; height: 130px; }
+
+    /* Composer on mobile */
+    .pre-selection-inputs { padding: 20px; }
+    .pre-selection-inputs .form-group { flex-basis: 100%; } /* Full width on mobile */
+
+    .gallery-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+
+    .footer-content { flex-direction: column; align-items: center; text-align: center; }
+    .qr-code { margin-top: 20px; }
+
+    .modal-content { width: 90%; margin: 15% auto; padding: 25px; }
+    .modal h2 { font-size: 1.8rem; }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    body { font-size: 15px; }
+    :root { --header-height: 60px; } /* Even smaller header */
+    body { padding-top: 60px; }
+
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.8rem; }
+    h3 { font-size: 1.5rem; }
+
+    .hero p { font-size: 0.95rem; }
+    .main-button { padding: 12px 25px; font-size: 1rem; }
+    .main-button.small-button { padding: 9px 18px; font-size: 0.9rem; }
+
+    .service-image { max-width: 150px; height: 110px; }
+
+    /* Composer on small mobile */
+     .pre-selection-inputs { padding: 15px; gap: 15px; }
+     .pre-selection-inputs input, .pre-selection-inputs select { padding: 10px; font-size: 0.9rem; }
+     #estimated-total-display { margin-bottom: 30px; padding: 10px; }
+     #estimated-total-display .total-label { font-size: 1.1em; }
+     #estimated-total-display #estimated-price { font-size: 1.2em; }
+     #estimated-total-display .disclaimer { font-size: 0.8em; }
+     .composer-package, .composer-alacarte { padding: 20px; }
+     .composer-package h3, .composer-alacarte h3 { font-size: 1.4rem; }
+     .composer-alacarte .service-category h4 { font-size: 1.1rem; }
+     .composer-alacarte .service-items { padding-left: 25px; gap: 8px; }
+     .price-hint { font-size: 0.85rem; }
+
+
+    .gallery-grid { grid-template-columns: 1fr; }
+    .gallery-grid img { height: 250px; }
+
+    .modal-content { margin: 20% auto; padding: 20px 15px; }
+    .modal h2 { font-size: 1.6rem; }
+    .modal form input, .modal form select, .modal form textarea,
+    .modal form button[type="submit"] { font-size: 0.9rem; }
+    .modal form .preference-options label { padding: 6px 10px; font-size: 0.9rem; }
+    .modal form button[type="submit"] { padding: 12px 20px; min-width: 160px; }
+}

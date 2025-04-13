@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Fadou Events crée des événements sur mesure, uniques et éthiques à Paris et IDF. Organisation complète ou à la carte pour entreprises et particuliers.">
+    <title>Fadou Events - L’Élégance Émotionnelle Sur-Mesure</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+    <!-- EmailJS Initialization -->
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        (function () {
+            // Remplacez par votre clé publique EmailJS
+            emailjs.init("wxmm_J4VmX5o4N4D_");
+        })();
+    </script>
+    <!-- Favicon (Exemple - à remplacer par vos fichiers) -->
+    <!-- <link rel="icon" href="/favicon.ico" sizes="any"> -->
+    <!-- <link rel="icon" href="/favicon.svg" type="image/svg+xml"> -->
+    <!-- <link rel="apple-touch-icon" href="/apple-touch-icon.png"> -->
+
+</head>
+
+<body>
+    <!-- ======================= Header ======================= -->
+    <header id="main-header">
+        <div class="container header-container">
+            <a href="#accueil" class="logo-link" aria-label="Fadou Events - Accueil">
+                <img src="Photos_FADOU/logo_fadou.png" alt="Logo Fadou Events" class="logo-image">
+            </a>
+            <nav class="main-nav">
+                <ul class="nav-links">
+                    <li><a href="#accueil" class="nav-link">Accueil</a></li>
+                    <li><a href="#prestations" class="nav-link">Nos prestations</a></li>
+                    <li><a href="#composer-evenement" class="nav-link">Composer</a></li> <!-- Lien vers le configurateur -->
+                    <li><a href="#a-propos" class="nav-link">Notre promesse</a></li>
+                    <li><a href="#galerie" class="nav-link">Inspirations</a></li>
+                    <li><a href="#contact-section" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="hamburger-menu" aria-label="Ouvrir le menu de navigation" aria-expanded="false">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ======================= Hero Section (#accueil) ======================= -->
+    <section id="accueil" class="hero">
+        <div class="hero-background">
+            <img src="Photos_FADOU/fond.png" alt="Réception haut de gamme organisée par Fadou Events">
+        </div>
+        <div class="hero-content container">
+            <h1 class="hero-title">L’ÉLÉGANCE ÉMOTIONNELLE SUR-MESURE</h1>
+            <p>Fadou Events vous accompagne de A à Z pour créer des événements uniques, éthiques et inoubliables à Paris et en Île-de-France.</p>
+            <!-- Bouton ouvrant la modale RDV -->
+            <a href="#rdvModal" class="main-button" data-modal-target="#rdvModal">Découvrir votre événement</a>
+        </div>
+    </section>
+
+    <!-- ======================= Services Section (#prestations) ======================= -->
+    <section id="prestations" class="services">
+        <div class="container">
+            <h2>Nos Prestations Générales</h2>
+            <div class="service-grid">
+                <div class="service-item">
+                    <img src="Photos_FADOU/Entreprise_events.png" alt="Événement d'entreprise organisé par Fadou Events" class="service-image">
+                    <h3>Événements d’entreprise</h3>
+                    <p>Séminaires, lancements, soirées de gala conçus pour marquer les esprits et renforcer votre image.</p>
+                </div>
+                <div class="service-item">
+                    <img src="Photos_FADOU/private_event.png" alt="Mariage élégant organisé par Fadou Events" class="service-image">
+                    <h3>Événements privés</h3>
+                    <p>Mariages, anniversaires, célébrations intimes... chaque moment spécial orchestré avec finesse.</p>
+                </div>
+                <div class="service-item">
+                    <img src="Photos_FADOU/scenographie.png" alt="Scénographie florale et lumineuse pour un événement" class="service-image">
+                    <h3>Scénographie & Ambiance</h3>
+                    <p>Création d'univers visuels et sensoriels uniques pour sublimer votre événement.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================= Event Composer Section (#composer-evenement) ======================= -->
+    <section id="composer-evenement" class="event-composer">
+        <div class="container">
+            <h2>Composez Votre Événement sur Mesure</h2>
+            <p class="composer-intro">Commencez par indiquer le nombre d'invités et le type d'événement pour obtenir une première estimation. Choisissez ensuite notre formule complète ou sélectionnez vos services à la carte. Les tarifs sont indicatifs pour la région parisienne et affinés sur devis.</p>
+
+            <!-- Champs Pré-requis -->
+            <div class="pre-selection-inputs">
+                 <div class="form-group">
+                     <label for="num-guests">Nombre d'invités estimé :</label>
+                     <input type="number" id="num-guests" name="num_guests" min="1" placeholder="Ex: 50">
+                 </div>
+                 <div class="form-group">
+                     <label for="event-type-select">Type d'événement :</label>
+                     <select id="event-type-select" name="event_type">
+                        <option value="">-- Sélectionnez --</option>
+                        <option value="Mariage">Mariage</option>
+                        <option value="Anniversaire">Anniversaire</option>
+                        <option value="Seminaire">Séminaire</option>
+                        <option value="Lancement Produit">Lancement Produit</option>
+                        <option value="Soiree Gala">Soirée de Gala</option>
+                        <option value="Cocktail Entreprise">Cocktail d'entreprise</option>
+                        <option value="Bapteme">Baptême / Fête religieuse</option>
+                        <option value="Fete Famille">Fête de famille</option>
+                        <option value="Pot Depart">Pot de départ / Fête d'entreprise</option>
+                        <option value="Diner Noel CE">Dîner de Noël / CE</option>
+                        <option value="Autre">Autre (Précisez dans le message)</option>
+                     </select>
+                 </div>
+            </div>
+            <!-- Fin Champs Pré-requis -->
+
+             <!-- Affichage Total Estimé -->
+             <div id="estimated-total-display" style="display: none;"> <!-- Géré par JS -->
+                 <span class="total-label">Estimation Budgétaire Indicative :</span>
+                 <span id="estimated-price">0</span> €
+                 <p class="disclaimer">(Ce montant est une estimation non contractuelle, affinée lors du devis personnalisé)</p>
+             </div>
+             <!-- Fin Affichage Total Estimé -->
+
+            <div class="composer-options">
+                <!-- Option 1: Formule Complète -->
+                <div class="composer-package">
+                    <h3>Formule Sérénité</h3>
+                    <p>Confiez-nous l'intégralité de votre projet, de la conception à la coordination le Jour J. Idéal pour une tranquillité d'esprit totale.</p>
+                    <ul>
+                        <li>Conseil & Conception personnalisée</li>
+                        <li>Recherche & Sélection lieux et prestataires</li>
+                        <li>Gestion du budget prévisionnel</li>
+                        <li>Scénographie & Décoration</li>
+                        <li>Logistique & Planification détaillée</li>
+                        <li>Coordination le Jour J</li>
+                        <li>Suivi post-événement</li>
+                    </ul>
+                    <p class="pricing-info">
+                        <strong>Tarif indicatif :</strong> À partir de 3 500 € pour les événements privés (généralement 10-15% du budget global). <br>
+                        Sur devis personnalisé pour les événements d'entreprise.
+                    </p>
+                    <!-- Bouton spécifique pour la formule Sérénité -->
+                    <a href="#devisModal" class="main-button small-button" data-modal-target="#devisModal" data-package="Sérénité">Demander un devis "Sérénité"</a>
+                </div>
+
+                <!-- Option 2: À la Carte -->
+                <div class="composer-alacarte">
+                    <h3>Formule À la Carte</h3>
+                     <p>Vous avez déjà des idées ou certains prestataires ? Sélectionnez uniquement les services dont vous avez besoin.</p>
+                     <form id="services-selection-form">
+                        <div class="alacarte-grid">
+                            <div class="service-category">
+                                <h4><input type="checkbox" id="cat-lieu" name="cat-lieu"><label for="cat-lieu">Lieu & Logistique</label></h4>
+                                <div class="service-items">
+                                    <div class="service-item-select"><input type="checkbox" id="serv-recherche-lieu" name="services" value="Recherche Lieu"><label for="serv-recherche-lieu">Recherche & Sélection du lieu</label> <span class="price-hint">(Voir estim.)</span></div>
+                                    <div class="service-item-select"><input type="checkbox" id="serv-location-materiel" name="services" value="Location Matériel"><label for="serv-location-materiel">Location matériel (mobilier, vaisselle...)</label> <span class="price-hint">(Voir estim.)</span></div>
+                                    <div class="service-item-select"><input type="checkbox" id="serv-logistique" name="services" value="Logistique"><label for="serv-logistique">Planification & Logistique (hors Jour J)</label> <span class="price-hint">(Voir estim.)</span></div>
+                                </div>
+                            </div>
+                            <div class="service-category">
+                                 <h4><input type="checkbox" id="cat-sceno" name="cat-sceno"><label for="cat-sceno">Scénographie & Décoration</label></h4>
+                                 <div class="service-items">
+                                    <div class="service-item-select"><input type="checkbox" id="serv-concept-deco" name="services" value="Concept Déco"><label for="serv-concept-deco">Conception scénographique</label> <span class="price-hint">(Voir estim.)</span></div>
+                                    <div class="service-item-select"><input type="checkbox" id="serv-deco-florale" name="services" value="Déco Florale"><label for="serv-deco-florale">Décoration florale</label> <span class="price-hint">(Voir estim.)</span></div>
+                                    <div class="service-item-select"><input type="checkbox" id="serv-lumieres" name="services" value="Lumières"><label for="serv-lumieres">Mise en lumière</label> <span class="price-hint">(Voir estim.)</span></div>
+                                    <div class="service-item-select"><input type="checkbox" id="serv-installation-deco" name="services" value="Installation Déco"><label for="serv-installation-deco">Installation & Désinstallation</label> <span class="price-hint">(Voir estim.)</span></div>
+                                 </div>
+                            </div>
+                            <div class="service-category">
+                                 <h4><input type="checkbox" id="cat-prestataires" name="cat-prestataires"><label for="cat-prestataires">Prestataires</label></h4>
+                                 <div class="service-items">
+                                    <div class="service-item-select"><input type="checkbox" id="serv-traiteur" name="services" value="Traiteur"><label for="serv-traiteur">Recherche & Coordination Traiteur</label> <span class="price-hint">(Voir estim.)</span></div>
+                                    <div class="service-item-select"><input type="checkbox" id="serv-animations" name="services" value="Animations"><label for="serv-animations">Recherche Animations (DJ, Photo...)</label> <span class="price-hint">(Voir estim.)</span></div>
+                                    <div class="service-item-select"><input type="checkbox" id="serv-papeterie" name="services" value="Papeterie"><label for="serv-papeterie">Création Papeterie</label> <span class="price-hint">(Voir estim.)</span></div>
+                                 </div>
+                            </div>
+                            <div class="service-category">
+                                <h4><input type="checkbox" id="cat-coordination" name="cat-coordination"><label for="cat-coordination">Coordination</label></h4>
+                                 <div class="service-items">
+                                    <div class="service-item-select"><input type="checkbox" id="serv-coordi-jourj" name="services" value="Coordination Jour J"><label for="serv-coordi-jourj">Coordination Jour J</label> <span class="price-hint">(Voir estim.)</span></div>
+                                    <div class="service-item-select"><input type="checkbox" id="serv-gestion-invites" name="services" value="Gestion Invités"><label for="serv-gestion-invites">Gestion des invités (RSVP...)</label> <span class="price-hint">(Voir estim.)</span></div>
+                                 </div>
+                            </div>
+                        </div> <!-- Fin .alacarte-grid -->
+                    </form>
+                     <!-- Bouton spécifique pour la formule À la Carte -->
+                    <button type="button" id="goto-devis-alacarte" class="main-button small-button">Obtenir mon devis "À la Carte"</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- FIN NOUVELLE SECTION -->
+
+    <!-- ======================= Promise Section (#a-propos) ======================= -->
+    <section id="a-propos" class="promise">
+        <div class="container promise-container-narrow"> <!-- Container plus étroit -->
+            <h2>Notre promesse</h2>
+            <div class="promise-grid">
+                <div class="promise-item">
+                    <div class="icon">🎧</div>
+                    <h3>Écoute profonde</h3>
+                    <p>Nous prenons le temps de comprendre vos désirs les plus chers pour un événement qui vous ressemble.</p>
+                </div>
+                <div class="promise-item">
+                    <div class="icon">🌿</div>
+                    <h3>Éco-responsabilité</h3>
+                    <p>Des choix conscients (prestataires locaux, saisonnalité...) pour un impact positif.</p>
+                </div>
+                <div class="promise-item">
+                    <div class="icon">🤝</div>
+                    <h3>Partenaires de confiance</h3>
+                    <p>Un réseau de professionnels passionnés et engagés, sélectionnés pour leur qualité.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================= Gallery Section (#galerie) ======================= -->
+    <section id="galerie" class="gallery">
+        <div class="container">
+            <h2>Inspirations</h2>
+            <div class="gallery-grid">
+                <img src="Photos_FADOU/ambiance.JPG" alt="Ambiance lumineuse chaleureuse d'un dîner événementiel">
+                <img src="Photos_FADOU/couverts.png" alt="Couverts dorés élégants sur une table de réception">
+                <img src="Photos_FADOU/faire-bougie-fleurs.jpeg" alt="Atelier créatif de bougies fleuries pour invités">
+                <img src="Photos_FADOU/fleur.png" alt="Centre de table avec décoration florale délicate">
+                <img src="Photos_FADOU/illustration_afrique.png" alt="Table dressée pour un événement d'inspiration africaine chic">
+                <img src="Photos_FADOU/illustation_maghreb.png" alt="Ambiance festive et raffinée d'inspiration maghrébine">
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================= Final CTA Section (#contact-section) ======================= -->
+    <section id="contact-section" class="cta-final">
+        <div class="container">
+            <h2>Prêt·e à créer votre moment inoubliable ?</h2>
+            <!-- Bouton ouvrant la modale Devis -->
+            <a href="#devisModal" class="main-button" data-modal-target="#devisModal">Demander un devis personnalisé</a>
+        </div>
+    </section>
+
+    <!-- ======================= Footer ======================= -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="contact-info">
+                    <p><strong>Fadou Events</strong></p>
+                    <p><a href="mailto:fadouevents@gmail.com">fadouevents@gmail.com</a></p>
+                    <p>📞 <a href="tel:+33768516308">07 68 51 63 08</a></p>
+                     <!-- Remplacez # par vos vrais liens sociaux et les images placeholder -->
+                    <div class="footer-socials">
+                        <a href="#" target="_blank" rel="noopener noreferrer"><img src="https://via.placeholder.com/24/FFFFFF/A0AF8F?text=I" alt="Instagram Fadou Events"></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer"><img src="https://via.placeholder.com/24/FFFFFF/A0AF8F?text=F" alt="Facebook Fadou Events"></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer"><img src="https://via.placeholder.com/24/FFFFFF/A0AF8F?text=P" alt="Pinterest Fadou Events"></a>
+                    </div>
+                </div>
+                 <!-- Remplacez par un vrai QR Code (généré via un outil en ligne) -->
+                <div class="qr-code">
+                    <img src="https://via.placeholder.com/100/FFFFFF/333333?text=QR+Contact" alt="QR Code vers contact Fadou Events">
+                    <p>Scannez pour nous contacter</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© <span id="current-year">2024</span> Fadou Events. Tous droits réservés.</p>
+                <p>
+                    <!-- Remplacez # par les liens vers vos pages réelles -->
+                    <a href="#">Mentions légales</a> |
+                    <a href="#">Charte éthique</a> |
+                    <a href="#">Politique de confidentialité</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ======================= Modals ======================= -->
+
+    <!-- RDV Modal -->
+    <div id="rdvModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" data-modal-close="#rdvModal" aria-label="Fermer">×</span>
+            <h2>Premier rendez-vous offert</h2>
+            <p>Échangeons sur votre projet ! Réservez votre premier échange gratuit (30 min) avec Fadou Events.</p>
+            <form id="rdvForm">
+                <label for="rdvNom">Nom *</label>
+                <input type="text" name="nom" id="rdvNom" required>
+
+                <label for="rdvEmail">Email *</label>
+                <input type="email" name="email" id="rdvEmail" required>
+
+                <label for="rdvTel">Téléphone</label>
+                <input type="tel" name="telephone" id="rdvTel" placeholder="Optionnel">
+
+                <label>Préférence de contact *</label>
+                <div class="preference-options">
+                    <input type="radio" name="preference" id="visio" value="Visio" required>
+                    <label for="visio">Visio</label>
+
+                    <input type="radio" name="preference" id="telephone" value="Téléphone">
+                    <label for="telephone">Téléphone</label>
+
+                    <input type="radio" name="preference" id="presentiel" value="Présentiel (Paris/IDF)">
+                    <label for="presentiel">Présentiel</label>
+                </div>
+
+                <button type="submit">Réserver votre RDV découverte</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Devis Modal -->
+    <div id="devisModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" data-modal-close="#devisModal" aria-label="Fermer">×</span>
+            <h2>Demande de devis personnalisé</h2>
+            <p>Décrivez nous votre événement idéal, nous reviendrons vers vous rapidement avec une proposition sur mesure.</p>
+            <form id="devisForm">
+                <!-- Les champs nombre invités et type seront pré-remplis par le message JS si possible -->
+                <label for="type">Type d'événement *</label>
+                <select name="type_evenement" id="type" required>
+                    <option value="">-- Sélectionnez --</option>
+                    <option value="Mariage">Mariage</option>
+                    <option value="Anniversaire">Anniversaire</option>
+                    <option value="Seminaire">Séminaire</option>
+                    <option value="Lancement Produit">Lancement Produit</option>
+                    <option value="Soiree Gala">Soirée de Gala</option>
+                    <option value="Cocktail Entreprise">Cocktail d'entreprise</option>
+                    <option value="Bapteme">Baptême / Fête religieuse</option>
+                    <option value="Fete Famille">Fête de famille</option>
+                    <option value="Pot Depart">Pot de départ / Fête d'entreprise</option>
+                    <option value="Diner Noel CE">Dîner de Noël / CE</option>
+                    <option value="Autre">Autre</option>
+                </select>
+
+                <label for="date">Date souhaitée</label>
+                <input type="date" name="date_souhaitee" id="date">
+
+                <label for="lieu">Lieu envisagé</label>
+                <input type="text" name="lieu_envisage" id="lieu" placeholder="Ex: Paris, Château en IDF, Vos locaux...">
+
+                <label for="participants">Nombre de participants</label>
+                <input type="number" name="nombre_participants" id="participants" min="1" placeholder="Ex: 50">
+
+                <label for="message">Votre message / Précisions *</label>
+                <textarea name="message" id="message" rows="5" required placeholder="Décrivez vos envies, budget estimé, services cochés (si applicable)..."></textarea>
+
+                <label for="nom-devis">Nom *</label> <!-- ID différent de rdvForm -->
+                <input type="text" name="nom" id="nom-devis" required>
+
+                <label for="prenom-devis">Prénom</label> <!-- ID différent de rdvForm -->
+                <input type="text" name="prenom" id="prenom-devis">
+
+                <label for="email-devis">Email *</label> <!-- ID différent de rdvForm -->
+                <input type="email" name="email" id="email-devis" required>
+
+                <button type="submit">Envoyer ma demande de devis</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ======================= Scripts ======================= -->
+    <!-- Script principal (Modales, Menu, Configurateur) -->
+    <script src="script.js"></script>
+
+    <!-- Script pour EmailJS -->
+    <script>
+           document.addEventListener("DOMContentLoaded", () => {
+            // Mettre à jour l'année du copyright
+            const currentYearSpan = document.getElementById("current-year");
+            if(currentYearSpan) {
+                currentYearSpan.textContent = new Date().getFullYear();
+            }
+
+            // Gestionnaires pour EmailJS
+            const rdvForm = document.getElementById("rdvForm");
+            const devisForm = document.getElementById("devisForm");
+
+            // SERVICE ID et TEMPLATE IDs (vérifiez qu'ils sont corrects dans votre compte EmailJS)
+            const emailJsServiceID = "service_u9o9469";
+            const emailJsRdvTemplateID = "template_rdv";
+            const emailJsDevisTemplateID = "template_devis";
+
+            if (rdvForm) {
+                rdvForm.addEventListener("submit", function (e) {
+                    e.preventDefault();
+                    const submitButton = this.querySelector('button[type="submit"]');
+                    submitButton.disabled = true; // Désactiver bouton pendant envoi
+                    submitButton.textContent = 'Envoi en cours...';
+
+                    emailjs.sendForm(emailJsServiceID, emailJsRdvTemplateID, this)
+                        .then(() => {
+                           alert("Merci ! Votre demande de RDV a bien été envoyée. Nous vous recontacterons bientôt.");
+                           const modal = document.getElementById('rdvModal');
+                           if(modal) modal.style.display = "none";
+                           this.reset();
+                           submitButton.disabled = false;
+                           submitButton.textContent = 'Réserver votre RDV découverte';
+                        }, (error) => {
+                            console.error("Erreur EmailJS (RDV):", error);
+                            alert("Une erreur est survenue lors de l'envoi. Veuillez réessayer ou nous contacter directement.\nDétails: " + JSON.stringify(error));
+                            submitButton.disabled = false;
+                            submitButton.textContent = 'Réserver votre RDV découverte';
+                        });
+                });
+            }
+
+            if (devisForm) {
+                devisForm.addEventListener("submit", function (e) {
+                    e.preventDefault();
+                     const submitButton = this.querySelector('button[type="submit"]');
+                    submitButton.disabled = true;
+                    submitButton.textContent = 'Envoi en cours...';
+
+                    emailjs.sendForm(emailJsServiceID, emailJsDevisTemplateID, this)
+                          .then(() => {
+                            alert("Merci ! Votre demande de devis a bien été envoyée. Nous reviendrons vers vous rapidement.");
+                            const modal = document.getElementById('devisModal');
+                            if(modal) modal.style.display = "none";
+                            this.reset();
+                             submitButton.disabled = false;
+                             submitButton.textContent = 'Envoyer ma demande de devis';
+                            // Optionnel: réinitialiser l'affichage du configurateur ?
+                            // if(typeof calculateEstimate === 'function') calculateEstimate();
+                        }, (error) => {
+                            console.error("Erreur EmailJS (Devis):", error);
+                            alert("Une erreur est survenue lors de l'envoi de votre demande de devis. Veuillez réessayer ou nous contacter directement.\nDétails: " + JSON.stringify(error));
+                            submitButton.disabled = false;
+                            submitButton.textContent = 'Envoyer ma demande de devis';
+                        });
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>
